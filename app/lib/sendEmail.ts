@@ -11,20 +11,20 @@ export async function sendMail({
     body,
     subject,
 }: SendMail) {
-    const { EMAIL_PASSWORD, EMAIL_USER } = process.env
+    const { NEXT_PUBLIC_EMAIL_PASSWORD, NEXT_PUBLIC_EMAIL_USER } = process.env
 
     const transport = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: EMAIL_USER,
-            pass: EMAIL_PASSWORD
+            user: NEXT_PUBLIC_EMAIL_USER,
+            pass: NEXT_PUBLIC_EMAIL_PASSWORD
         }
     })
 
     try {
         await transport.sendMail({
-            from: EMAIL_USER,
-            to: EMAIL_USER,
+            from: NEXT_PUBLIC_EMAIL_USER,
+            to: NEXT_PUBLIC_EMAIL_USER,
             subject,
             html: body,
         })

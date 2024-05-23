@@ -10,12 +10,12 @@ import { RichText } from "../RichText";
 export const Footer: React.FC<HtmlHTMLAttributes<HTMLElement>> = async ({ ...rest }) => {
     const client = createClient(repositoryName);
     const navigation = await client.getByUID("navigation", "footer");
-    const logo = await client.getByUID("logo", "logo");
+    const logo = await client.getByUID("logo", "logo-on-process");
 
     return (
         <footer className="w-screen bg-primary pt-14 pb-36" {...rest}>
             <nav className="flex items-start gap-28 w-full m-auto max-w-6xl">
-                <Image field={logo.data.logo} className="w-auto h-24" />
+                <Image field={logo.data.logo} className="w-auto h-8" />
                 <ul className="list-none flex gap-14">
                     {navigation.data.slices.map((slice) => {
                         return (

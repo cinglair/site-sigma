@@ -26,8 +26,11 @@ const Hero = async ({ slice }: HeroProps): Promise<JSX.Element> => {
       <PageSection>
         <PageSectionContent className="gap-16 m-auto">
           <div className="flex flex-col gap-20 h-full">
-            <div className="flex-col">
-              <RichText field={slice.primary.title} className="text-neutral-0" />
+            <div className="flex flex-col gap-2">
+              <div className="flex flex-col">
+                <RichText field={slice.primary.title} className="text-neutral-0" />
+                <RichText field={slice.primary.highlighttitle} className="text-primary" />
+              </div>
               <p className="font-normal text-neutral-0 text-2xl">{slice.primary.description}</p>
             </div>
             <CallToActions>
@@ -36,7 +39,7 @@ const Hero = async ({ slice }: HeroProps): Promise<JSX.Element> => {
               </Link>
             </CallToActions>
           </div>
-          <Image field={slice.primary.image} width={565} height={500} />
+          <Image field={slice.primary.image} width={550} height={500} />
         </PageSectionContent>
       </PageSection>
     </section>

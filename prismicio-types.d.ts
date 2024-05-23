@@ -275,6 +275,16 @@ export interface HeroSliceDefaultPrimary {
   title: prismic.RichTextField;
 
   /**
+   * HighLightTitle field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.highlighttitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  highlighttitle: prismic.RichTextField;
+
+  /**
    * Description field in *Hero → Primary*
    *
    * - **Field Type**: Text

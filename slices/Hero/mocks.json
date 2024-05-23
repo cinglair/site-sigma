@@ -41,6 +41,17 @@
 						}
 					}
 				]
+			},
+			"highlighttitle": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Quis excepteur aliqua labore."
+						}
+					}
+				]
 			}
 		},
 		"items": [

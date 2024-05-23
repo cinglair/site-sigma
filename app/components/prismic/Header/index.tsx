@@ -9,12 +9,12 @@ import { RichText } from "../RichText";
 export const Header: React.FC = async () => {
     const client = createClient(repositoryName);
     const navigation = await client.getByUID("navigation", "header");
-    const logo = await client.getByUID("logo", "logo");
+    const logo = await client.getByUID("logo", "logo-on-process");
 
     return (
         <header className="w-screen sticky bg-primary">
             <nav className="flex items-center justify-between w-full m-auto max-w-6xl">
-                <Image field={logo.data.logo} className="w-auto h-16" />
+                <Image field={logo.data.logo} className="w-auto h-8" />
                 <ul className="list-none flex">
                     {navigation.data.slices.map((slice) => {
                         return (
