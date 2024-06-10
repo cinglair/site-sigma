@@ -16,6 +16,7 @@ const Team = ({ slice }: TeamProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      id="time"
     >
       <PageSection>
         <PageSectionContent className="gap-16 flex-col w-full">

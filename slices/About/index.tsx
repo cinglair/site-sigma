@@ -16,6 +16,7 @@ const About = ({ slice }: AboutProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      id="sobre"
     >
       <PageSection className="bg-primary pb-64">
         <PageSectionContent className="gap-16 flex-col relative w-full">
