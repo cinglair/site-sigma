@@ -48,6 +48,8 @@ export type CallToActionsDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | TeamSlice
+  | AboutSlice
   | ContactSlice
   | HighlightsSlice
   | ModulesSlice
@@ -194,6 +196,73 @@ export type AllDocumentTypes =
   | HomepageDocument
   | LogoDocument
   | NavigationDocument;
+
+/**
+ * Primary content in *About → Primary*
+ */
+export interface AboutSliceDefaultPrimary {
+  /**
+   * Title field in *About → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *About → Items*
+ */
+export interface AboutSliceDefaultItem {
+  /**
+   * Concept field in *About → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.items[].concept
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  concept: prismic.RichTextField;
+
+  /**
+   * Description field in *About → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for About Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutSliceDefaultPrimary>,
+  Simplify<AboutSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *About*
+ */
+type AboutSliceVariation = AboutSliceDefault;
+
+/**
+ * About Shared Slice
+ *
+ * - **API ID**: `about`
+ * - **Description**: About
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutSlice = prismic.SharedSlice<"about", AboutSliceVariation>;
 
 /**
  * Primary content in *Contact → Primary*
@@ -599,6 +668,83 @@ export type NavigationItemSlice = prismic.SharedSlice<
   NavigationItemSliceVariation
 >;
 
+/**
+ * Primary content in *Team → Primary*
+ */
+export interface TeamSliceDefaultPrimary {
+  /**
+   * Title field in *Team → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Team → Items*
+ */
+export interface TeamSliceDefaultItem {
+  /**
+   * Name field in *Team → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.items[].name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.RichTextField;
+
+  /**
+   * Description field in *Team → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Picture field in *Team → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.items[].picture
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  picture: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Team Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TeamSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TeamSliceDefaultPrimary>,
+  Simplify<TeamSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Team*
+ */
+type TeamSliceVariation = TeamSliceDefault;
+
+/**
+ * Team Shared Slice
+ *
+ * - **API ID**: `team`
+ * - **Description**: Team
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TeamSlice = prismic.SharedSlice<"team", TeamSliceVariation>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -620,6 +766,11 @@ declare module "@prismicio/client" {
       NavigationDocumentData,
       NavigationDocumentDataSlicesSlice,
       AllDocumentTypes,
+      AboutSlice,
+      AboutSliceDefaultPrimary,
+      AboutSliceDefaultItem,
+      AboutSliceVariation,
+      AboutSliceDefault,
       ContactSlice,
       ContactSliceDefaultPrimary,
       ContactSliceVariation,
@@ -646,6 +797,11 @@ declare module "@prismicio/client" {
       NavigationItemSliceDefaultItem,
       NavigationItemSliceVariation,
       NavigationItemSliceDefault,
+      TeamSlice,
+      TeamSliceDefaultPrimary,
+      TeamSliceDefaultItem,
+      TeamSliceVariation,
+      TeamSliceDefault,
     };
   }
 }

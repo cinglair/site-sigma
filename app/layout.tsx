@@ -9,8 +9,8 @@ import "./globals.css";
 const inter = Ubuntu({ weight: ['300', '400', '500', '700'], subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Sigma | Homepage",
-  description: "Site oficial do projeto Sigma!",
+  title: "OnProcess | Homepage",
+  description: "Site oficial da OnProcess!",
 };
 
 export default function RootLayout({
