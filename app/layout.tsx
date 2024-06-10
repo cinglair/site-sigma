@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="bg-neutral-100 h-screen w-screen overflow-x-hidden relative">
+        <main className="bg-neutral-100 h-screen w-screen overflow-x-hidden relative scroll-smooth">
           <ToastContainer />
           <Header />
           {children}
