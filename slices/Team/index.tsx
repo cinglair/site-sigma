@@ -21,15 +21,15 @@ const Team = ({ slice }: TeamProps): JSX.Element => {
       <PageSection>
         <PageSectionContent className="gap-16 flex-col w-full">
           <SectionTitle title={slice.primary.title} />
-          <div className="flex justify-between w-full flex-wrap">
+          <div className="flex justify-between gap-3 w-full flex-wrap">
             {slice.items.map((item, index) => (
               <div key={index} className="flex flex-col items-center gap-4">
-                <HexagonContainer>
+                <HexagonContainer className="w-52 h-52">
                   <Image field={item.picture} className="w-48 h-48 object-cover" />
                 </HexagonContainer>
                 <div className="flex flex-col items-center">
-                  <RichText field={item.name} className="font-bold  text-neutral-50" />
-                  <RichText field={item.description} className="font-normal text-primary" />
+                  <RichText field={item.name} className="font-bold  text-primary opacity-70" />
+                  <RichText field={item.description} className="font-normal text-primary w-32 text-center" />
                 </div>
               </div>
             ))}
