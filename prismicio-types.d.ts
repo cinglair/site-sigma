@@ -716,6 +716,16 @@ export interface TeamSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   picture: prismic.ImageField<never>;
+
+  /**
+   * Profile Url field in *Team → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.items[].profile_url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  profile_url: prismic.LinkField;
 }
 
 /**

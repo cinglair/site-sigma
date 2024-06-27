@@ -48,6 +48,14 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "profile_url": {
+          "type": "Link",
+          "config": {
+            "label": "Profile Url",
+            "placeholder": "",
+            "select": null
+          }
         }
       }
     }
